@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+#homepage {
+  height: 100vh;
+  width: 100%;
+  background-image: url(./resourses/doctors-portal/images/chair-faint.png);
+  background-position: left top;
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+#homepage::after {
+  height: 100%;
+  content: " ";
+  position: absolute;
+  top: 0;
+  width: 30%;
+}
+#homepage::after {
+  right: 0;
+  background-color: #3a4256;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-item {
+  padding-right: 25px !important;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.c-green {
+  background-color: #1cc7c1;
+}
+.t-green {
+  color: #1cc7c1;
+}
+.c-green-grad-right {
+  background: linear-gradient(to right, #19d3ae, #0fcfec);
+}
+.c-green-grad-bottom {
+  background: linear-gradient(to bottom, #19d3ae, #0fcfec);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 768px) {
+  #homepage {
+    width: 100vw;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.react-calendar {
+  border: 0;
 }
-
-.App-link {
-  color: #61dafb;
+.react-calendar__tile {
+  width: 48px;
+  height: 56px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.react-calendar__tile--active {
+  background: #1cc7c1;
+  border-radius: 10px;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #1cc7c1;
 }

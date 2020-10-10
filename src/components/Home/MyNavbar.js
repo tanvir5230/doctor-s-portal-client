@@ -17,14 +17,14 @@ const MyNavbar = (props) => {
   return (
     <Navbar
       className="w-100 mr-1 bg-transparent"
-      style={{ zIndex: "1" }}
+      style={{ zIndex: "1", height: "10vh", width: "100%" }}
       color="light"
       light
-      expand="md"
+      expand="lg"
     >
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
-        <Nav className="ml-auto p-0" navbar>
+        <Nav className="ml-auto p-0 d-flex justify-content-md-end w-100" navbar>
           <NavItem>
             <Link className="nav-link" to="/">
               Home
@@ -33,17 +33,23 @@ const MyNavbar = (props) => {
           <NavItem>
             <NavLink href="/">About</NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className="">
             <NavLink href="/">Dental Services</NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink href="/">Reviews</NavLink>
+          <NavItem className="pl-md-3">
+            <NavLink href="/" className="text-white">
+              Reviews
+            </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/">Blog</NavLink>
+            <NavLink href="/" className="text-white">
+              Blog
+            </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/">Contact us</NavLink>
+            <NavLink href="/" className="text-white">
+              Contact us
+            </NavLink>
           </NavItem>
         </Nav>
       </Collapse>

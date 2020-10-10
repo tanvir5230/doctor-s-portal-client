@@ -17,12 +17,13 @@
 #homepage::after {
   right: 0;
   background-color: #3a4256;
+  z-index: -1;
 }
 
 .nav-item {
-  padding-right: 25px !important;
-  font-weight: bold;
-  font-size: 1.3rem;
+  width: 10%;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 .c-green {
   background-color: #1cc7c1;
@@ -35,12 +36,6 @@
 }
 .c-green-grad-bottom {
   background: linear-gradient(to bottom, #19d3ae, #0fcfec);
-}
-
-@media (max-width: 768px) {
-  #homepage {
-    width: 100vw;
-  }
 }
 
 .react-calendar {
@@ -57,4 +52,65 @@
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
   background: #1cc7c1;
+}
+
+@media (max-width: 768px) {
+  #homepage {
+    background-size: 100% 100%;
+  }
+  #homepage::after {
+    background: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: center;
+  }
+  p {
+    text-align: justify;
+  }
+  .btn {
+    display: block;
+    margin: 0 auto;
+  }
+  .navbar-collapse {
+    width: 100%;
+    background: #1cc7c1;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    text-align: center;
+  }
+}
+
+.blog-home {
+  position: relative;
+}
+.hover-me {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  color: white;
+}
+.blog-home:hover .hover-me {
+  transition: all 0.4s;
+  background-image: linear-gradient(to right, #19d3ae, #0fcfec),
+    url("./resourses/doctors-portal/images/quote-white.png");
+  background-size: 100%;
+  z-index: 10;
+}
+
+.contact {
+  width: 100%;
+  background: linear-gradient(rgb(58, 66, 86, 0.9), rgb(58, 66, 86, 0.9)),
+    url("resourses/doctors-portal/images/chair2.png");
+  background-position: center center;
+  background-size: contain contain;
+  background-repeat: repeat;
 }

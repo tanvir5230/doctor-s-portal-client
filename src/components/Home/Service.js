@@ -28,7 +28,7 @@ const Service = () => {
   }, []);
   return (
     <>
-      <Row className="mt-5 justify-content-center text-center">
+      <Row className="justify-content-center text-center">
         <Col xs={12} className="text-center">
           <h1 className="t-green">our services</h1>
           <h1>services we provide</h1>

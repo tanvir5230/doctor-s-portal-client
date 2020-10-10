@@ -19,7 +19,7 @@ const Home = () => {
         <GetAppointment />
         <Info />
       </Container>
-      <Container style={{ marginTop: "210px" }}>
+      <Container style={{ marginTop: "150px" }}>
         <Service />
       </Container>
       <Container fluid>
@@ -31,7 +31,7 @@ const Home = () => {
         <Doctors />
       </Container>
       <Container fluid className="contact pt-5" style={{ marginTop: "100px" }}>
-        <div className="text-center font-weight-bold text-white pb-5">
+        <div className="text-center font-weight-bold text-white">
           <h4 className="t-green  text-uppercase">contact us</h4>
           <h2 className="text-capitalize">always connect with us</h2>
         </div>

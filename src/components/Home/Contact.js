@@ -3,9 +3,9 @@ import { Col, Row } from "reactstrap";
 
 const Contact = () => {
   return (
-    <Row className=" justify-content-center">
-      <Col xs={11} md={8}>
-        <form className="" action="/">
+    <Row className="justify-content-center">
+      <Col xs={11} md={6}>
+        <form className="py-5" action="/">
           <input
             type="email"
             className="form-control mt-3 px-3 py-4"

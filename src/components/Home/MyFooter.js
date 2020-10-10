@@ -9,12 +9,11 @@ const MyFooter = () => {
         style={{
           background: `url(${bg})`,
           backgroundPosition: "center center",
-          height: "400px",
         }}
       >
         <Container className="h-100">
-          <Row className="h-100 justify-content-center align-items-center">
-            <Col xs={6} md={3}>
+          <Row className="h-100 justify-content-center align-items-center pt-5 px-3">
+            <Col xs={6} md={3} className="pt-5">
               <a className="d-block text-black" href="/">
                 emergency call
               </a>
@@ -29,6 +28,7 @@ const MyFooter = () => {
               </a>
             </Col>
             <Col xs={6} md={3}>
+              <h2 className="t-green">our services</h2>
               <a className="d-block text-black" href="/">
                 emergency call
               </a>
@@ -43,6 +43,7 @@ const MyFooter = () => {
               </a>
             </Col>
             <Col xs={6} md={3}>
+              <h2 className="t-green">oral health</h2>
               <a className="d-block text-black" href="/">
                 emergency call
               </a>
@@ -57,6 +58,7 @@ const MyFooter = () => {
               </a>
             </Col>
             <Col xs={6} md={3}>
+              <h2 className="t-green">our address</h2>
               <a className="d-block text-black" href="/">
                 emergency call
               </a>
@@ -72,7 +74,7 @@ const MyFooter = () => {
             </Col>
           </Row>
           <Row>
-            <div class="text-center py-3 col-12">
+            <div class="text-center py-5 col-12">
               © <span>{new Date().getFullYear()}</span> Copyright
             </div>
           </Row>

@@ -25,19 +25,13 @@ const Doctors = () => {
                 <Card className="border-0 text-center">
                   <CardImg top src={doc.image}></CardImg>
                   <div
-                    className="bg-white"
-                    style={{ transform: "translate(0,-50px)" }}
+                    className="bg-white py-2"
+                    style={{ transform: "translate(0,-80px)" }}
                   >
                     <h4>Dr. {doc.name}</h4>
-                    <h6>
-                      <img
-                        src={require("../../resourses/doctors-portal/images/call.png")}
-                        width="20"
-                        height="20"
-                        className=" bg-secondary"
-                        alt=""
-                      />
-                      <span>{doc.phone}</span>
+                    <h6 className="mt-3">
+                      <span className="text-success"><i className="fa fa-phone"></i></span>
+                      <span className="ml-2">+{doc.phone}</span>
                     </h6>
                   </div>
                 </Card>

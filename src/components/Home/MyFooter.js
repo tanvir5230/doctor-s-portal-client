@@ -9,6 +9,7 @@ const MyFooter = () => {
         style={{
           background: `url(${bg})`,
           backgroundPosition: "center center",
+          marginTop: "80px",
         }}
       >
         <Container className="h-100">
@@ -74,7 +75,7 @@ const MyFooter = () => {
             </Col>
           </Row>
           <Row>
-            <div class="text-center py-5 col-12">
+            <div className="text-center py-5 col-12">
               © <span>{new Date().getFullYear()}</span> Copyright
             </div>
           </Row>

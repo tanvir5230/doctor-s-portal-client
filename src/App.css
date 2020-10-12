@@ -1,29 +1,8 @@
-#homepage {
-  height: 100vh;
-  width: 100%;
-  background-image: url(./resourses/doctors-portal/images/chair-faint.png);
-  background-position: left top;
-  background-size: 70% 100%;
-  background-repeat: no-repeat;
-  position: relative;
-}
-#homepage::after {
-  height: 100%;
-  content: " ";
-  position: absolute;
-  top: 0;
-  width: 30%;
-}
-#homepage::after {
-  right: 0;
-  background-color: #3a4256;
-  z-index: -1;
-}
-
-.nav-item {
-  width: 10%;
-  font-weight: 700;
-  font-size: 1.1rem;
+#root {
+  font-family: "poppins", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 .c-green {
   background-color: #1cc7c1;
@@ -38,20 +17,14 @@
   background: linear-gradient(to bottom, #19d3ae, #0fcfec);
 }
 
-.react-calendar {
-  border: 0;
+.btn:hover {
+  background: #fff;
+  border: 1px solid #19d3ae;
+  color: #19d3ae !important;
+  transition: all 0.4s;
 }
-.react-calendar__tile {
-  width: 48px;
-  height: 56px;
-}
-.react-calendar__tile--active {
-  background: #1cc7c1;
-  border-radius: 10px;
-}
-.react-calendar__tile--active:enabled:hover,
-.react-calendar__tile--active:enabled:focus {
-  background: #1cc7c1;
+.active {
+  color: #1cc7c1;
 }
 
 @media (max-width: 768px) {
@@ -86,31 +59,18 @@
   }
 }
 
-.blog-home {
-  position: relative;
+.react-calendar {
+  border: 0;
 }
-.hover-me {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  color: white;
+.react-calendar__tile {
+  width: 48px;
+  height: 56px;
 }
-.blog-home:hover .hover-me {
-  transition: all 0.4s;
-  background-image: linear-gradient(to right, #19d3ae, #0fcfec),
-    url("./resourses/doctors-portal/images/quote-white.png");
-  background-size: 100%;
-  z-index: 10;
+.react-calendar__tile--active {
+  background: #1cc7c1;
+  border-radius: 10px;
 }
-
-.contact {
-  width: 100%;
-  background: linear-gradient(rgb(58, 66, 86, 0.9), rgb(58, 66, 86, 0.9)),
-    url("resourses/doctors-portal/images/chair2.png");
-  background-position: center center;
-  background-size: contain contain;
-  background-repeat: repeat;
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #1cc7c1;
 }

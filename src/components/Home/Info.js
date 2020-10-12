@@ -36,7 +36,7 @@ const Info = () => {
           {infos &&
             infos.map((el) => {
               return (
-                <Col md={4} className="pr-1 text-white">
+                <Col key={el.icon} md={4} className="pr-1 text-white">
                   <div
                     className={`${el.backgroundColor} p-4 rounded-lg  d-flex justify-content-center`}
                   >
@@ -44,7 +44,7 @@ const Info = () => {
                       src={el.icon}
                       alt=""
                       className="float-left mr-3"
-                      width="50"
+                      width="40"
                       height="50"
                     />
                     <div>

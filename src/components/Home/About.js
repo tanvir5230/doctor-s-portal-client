@@ -12,6 +12,7 @@ const About = () => {
         backgroundSize: "cover",
         marginTop: "100px",
       }}
+      id="about"
     >
       <Col
         lg={5}

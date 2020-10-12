@@ -29,14 +29,14 @@ const Service = () => {
   return (
     <>
       <Row className="justify-content-center text-center">
-        <Col xs={12} className="text-center">
+        <Col xs={12} className="text-center" id="dental-services">
           <h1 className="t-green">our services</h1>
           <h1>services we provide</h1>
         </Col>
         {services &&
           services.map((service) => {
             return (
-              <Col md={4} className="px-3 mt-5">
+              <Col key={service.image} md={4} className="px-3 mt-5">
                 <div>
                   <img
                     src={require(`../../resourses/doctors-portal/images/${service.image}`)}

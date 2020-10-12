@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Col, Row } from "reactstrap";
 
 const GetAppointment = () => {
@@ -15,9 +16,11 @@ const GetAppointment = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis placeat
           repellat, cupiditate perferendis aperiam beatae!
         </p>
-        <button className="btn c-green-grad-right text-white font-weight-bold">
-          get appointment
-        </button>
+        <Link to="/appointment">
+          <button className="btn c-green-grad-right text-white font-weight-bold">
+            get appointment
+          </button>
+        </Link>
       </Col>
 
       <Col md={5} className="offset-md-1 d-none d-md-block">

@@ -3,7 +3,7 @@ import { Col, Row } from "reactstrap";
 
 const Contact = () => {
   return (
-    <Row className="justify-content-center">
+    <Row className="justify-content-center" id="contact-us">
       <Col xs={11} md={6}>
         <form className="py-5" action="/">
           <input

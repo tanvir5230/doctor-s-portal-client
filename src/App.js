@@ -10,7 +10,7 @@ import Login from "./components/userRegistration/Login";
 import DoctorDashboard from "./components/dashboard/DoctorDashboard";
 import { createContext } from "react";
 import { useState } from "react";
-import axios from "axios";
+
 import Appointment from "./components/appointment/Appointment";
 import MyFooter from "./components/Home/MyFooter";
 

@@ -41,7 +41,6 @@ const ModalforPres = ({ modal, toggle, id }) => {
   useEffect(() => {
     if (id !== null) {
       Axios.get("http://localhost:5000/petient?id=" + id).then((res) => {
-        console.log(res.data);
         setPetient(res.data);
         setPres(res.data.prescription);
       });
@@ -99,11 +98,7 @@ const ModalforPres = ({ modal, toggle, id }) => {
           <Row>
             <Col xs={12}>
               {pres === null && <Loader />}
-              {pres === undefined && (
-                <p className="text-center text-danger">
-                  No prescription is given.
-                </p>
-              )}
+
               <Table responsive className="text-center">
                 <tr>
                   <th>order</th>
@@ -138,6 +133,11 @@ const ModalforPres = ({ modal, toggle, id }) => {
                     );
                   })}
               </Table>
+              {pres === undefined && (
+                <p className="text-center text-danger">
+                  No prescription is given.
+                </p>
+              )}
               {pres && pres.length === 0 && (
                 <p className="text-center text-danger">
                   No prescription is given.

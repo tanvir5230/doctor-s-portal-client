@@ -2,6 +2,7 @@ import Axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Col, Row, Table } from "reactstrap";
 import Loader from "../Loader";
 import ModalforPres from "./ModalforPres";
@@ -21,111 +22,15 @@ const Dashboard = () => {
   return (
     <>
       <Row
-        className="flex-nowrap p-0"
+        className="flex-wrap p-0 g-0"
         style={{
           boxSizing: "border-box",
-          overflowX: "scroll",
         }}
       >
-        <Col xs={4} md={3} className="text-white px-1">
-          <div
-            className="rounded-lg py-md-3"
-            style={{ backgroundColor: "#f15263" }}
-          >
-            <Row className="justify-content-center align-items-center p-0">
-              <Col xs={12} lg={5} className="h-100 w-100 text-center">
-                <span className="font-weight-bold" style={{ fontSize: "3rem" }}>
-                  04
-                </span>
-              </Col>
-              <Col
-                xs={12}
-                lg={7}
-                className="pb-2 text-left d-flex justify-content-center p-0"
-              >
-                <span className="overflow-hidden">
-                  pending <br />
-                  appointments
-                </span>
-              </Col>
-            </Row>
-          </div>
-        </Col>
-
-        <Col xs={4} md={3} className="text-white px-1">
-          <div
-            className="rounded-lg py-md-3"
-            style={{ backgroundColor: "#3da5f4" }}
-          >
-            <Row className="justify-content-center align-items-center p-0">
-              <Col xs={12} lg={5} className="h-100 w-100 text-center">
-                <span className="font-weight-bold" style={{ fontSize: "3rem" }}>
-                  10
-                </span>
-              </Col>
-              <Col
-                xs={12}
-                lg={7}
-                className="pb-2 text-left d-flex justify-content-center p-0"
-              >
-                <span className="overflow-hidden">
-                  Today's <br />
-                  appointments
-                </span>
-              </Col>
-            </Row>
-          </div>
-        </Col>
-
-        <Col xs={4} md={3} className="text-white px-1">
-          <div
-            className="rounded-lg py-md-3"
-            style={{ backgroundColor: "#00c689" }}
-          >
-            <Row className="justify-content-center align-items-center p-0">
-              <Col xs={12} lg={5} className="h-100 w-100 text-center">
-                <span className="font-weight-bold" style={{ fontSize: "3rem" }}>
-                  30
-                </span>
-              </Col>
-              <Col
-                xs={12}
-                lg={7}
-                className="pb-2 text-left d-flex justify-content-center p-0"
-              >
-                <span className="overflow-hidden">
-                  Total <br />
-                  appointments
-                </span>
-              </Col>
-            </Row>
-          </div>
-        </Col>
-
-        <Col xs={4} md={3} className="text-white px-1">
-          <div
-            className="rounded-lg py-md-3"
-            style={{ backgroundColor: "#f15263" }}
-          >
-            <Row className="justify-content-center align-items-center p-0">
-              <Col xs={12} lg={5} className="h-100 w-100 text-center">
-                <span className="font-weight-bold" style={{ fontSize: "3rem" }}>
-                  04
-                </span>
-              </Col>
-              <Col
-                xs={12}
-                lg={7}
-                className="pb-2 text-left d-flex justify-content-center p-0"
-              >
-                <span className="overflow-hidden">
-                  Total <br />
-                  Patients
-                </span>
-              </Col>
-            </Row>
-          </div>
-        </Col>
+        <SummaryCol title={"pending appointments"} number={10} bg={"#f15263"} />
+        <SummaryCol title={"Today's appointments"} number={10} bg={"#3da5f4"} />
+        <SummaryCol title={"Total appointments"} number={10} bg={"#00c689"} />
+        <SummaryCol title={"Total Patients"} number={10} bg={"#ffc107"} />
       </Row>
       <Row className="bg-white mt-3 rounded-lg">
         <TableCaption />
@@ -133,6 +38,32 @@ const Dashboard = () => {
       </Row>
       <ModalforPres modal={modal} toggle={toggle} id={id} />
     </>
+  );
+};
+
+const SummaryCol = ({ title, number, bg }) => {
+  return (
+    <Col xs={4} md={3} className="text-white mt-2">
+      <div className="rounded-lg py-3" style={{ backgroundColor: bg }}>
+        <Row className="justify-content-center align-items-center m-0 p-0 g-0">
+          <Col xs={12} lg={4} className="h-100 w-100 text-center p-0 m-0">
+            <span
+              className="font-weight-bold d-block"
+              style={{ fontSize: "2.5rem" }}
+            >
+              {number}
+            </span>
+          </Col>
+          <Col xs={12} lg={8} className="m-0 p-0">
+            <span className="d-block w-100">
+              {title.split(" ")[0]}
+              <br />
+              {title.split(" ")[1]}
+            </span>
+          </Col>
+        </Row>
+      </div>
+    </Col>
   );
 };
 
@@ -162,6 +93,8 @@ const TableCaption = () => {
 };
 
 const MyTable = ({ data, toggle, setId }) => {
+  const history = useHistory();
+
   return (
     <Col xs={12}>
       <Table responsive className="text-center">
@@ -209,18 +142,23 @@ const MyTable = ({ data, toggle, setId }) => {
                 <td>
                   <select
                     name="status"
-                    className="c-green-grad-bottom rounded text-center text-white border-0 py-1 text-center"
-                    defaultValue={data.status ? data.status : "pending"}
+                    className={`text-white border-0 p-2 font-weight-bold rounded text-white ${data.status}`}
+                    defaultValue={data.status}
+                    onInput={(e) => {
+                      Axios.patch(
+                        `http://localhost:5000/changeStatus?id=${data._id}&status=${e.target.value}`
+                      ).then((res) => {
+                        if (res.data) {
+                          history.replace("/doctor's-panel");
+                        } else {
+                          alert("couldnot change the status.");
+                        }
+                      });
+                    }}
                   >
-                    <option value="cancel" className="t-green">
-                      cancel
-                    </option>
-                    <option value="approved" className="t-green">
-                      approved
-                    </option>
-                    <option value="pending" className="t-green">
-                      pending
-                    </option>
+                    <option value="cancel">cancel</option>
+                    <option value="approved">approved</option>
+                    <option value="pending">pending</option>
                   </select>
                 </td>
               </tr>

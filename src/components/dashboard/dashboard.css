@@ -6,3 +6,13 @@ a:hover {
   margin-left: 6px;
   text-decoration: none !important;
 }
+
+.pending {
+  background-color: #76c5ff;
+}
+.approved {
+  background-color: #38af86;
+}
+.cancel {
+  background-color: #ff7676;
+}

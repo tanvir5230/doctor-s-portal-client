@@ -1,9 +1,18 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
+import { Link, useHistory } from "react-router-dom";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  NavLink,
+} from "reactstrap";
 
 const MyNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const history = useHistory();
+  const path = history.location.pathname;
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -11,11 +20,8 @@ const MyNavbar = () => {
     <Navbar
       className="w-100 p-0"
       style={{
-        zIndex: "1",
         height: "10vh",
         width: "100%",
-        position: "fixed",
-        top: "0",
       }}
       color="light"
       light
@@ -36,83 +42,93 @@ const MyNavbar = () => {
         </span>
       </Link>
 
-      <NavbarToggler onClick={toggle} />
-      <Collapse
-        isOpen={isOpen}
-        navbar
-        className="d-lg-flex justify-content-lg-end pr-lg-5"
-      >
-        <Nav navbar>
-          <NavItem>
-            <NavLink to="/" className="nav-link">
-              Home
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              to="/about"
-              className="nav-link"
-              activeStyle={{ color: "#19d3ae" }}
-            >
-              About
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              to="/dental-services"
-              className="nav-link"
-              activeStyle={{ color: "#19d3ae" }}
-            >
-              Dental Services
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              to="/reviews"
-              className="text-dark-50 nav-link"
-              activeStyle={{ color: "#19d3ae" }}
-            >
-              Reviews
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              to="/doctors"
-              className="text-dark-50 nav-link"
-              activeStyle={{ color: "#19d3ae" }}
-            >
-              Doctors
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              to="/blog"
-              className="text-dark-50 nav-link"
-              activeStyle={{ color: "#19d3ae" }}
-            >
-              Blog
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              to="/contactus"
-              className="text-dark-50 nav-link"
-              activeStyle={{ color: "#19d3ae" }}
-            >
-              Contact us
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              to="/dashboard"
-              className="text-dark-50 nav-link"
-              activeStyle={{ color: "#19d3ae" }}
-            >
-              Dashboard
-            </NavLink>
-          </NavItem>
-        </Nav>
-      </Collapse>
+      {path === "/" && (
+        <>
+          <NavbarToggler onClick={toggle} />
+          <Collapse
+            isOpen={isOpen}
+            navbar
+            className="d-lg-flex justify-content-lg-end pr-lg-5"
+          >
+            <Nav className="text-right" navbar>
+              <NavItem>
+                <NavLink href="#" className="nav-link">
+                  Home
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink
+                  href="#dental-services"
+                  className="nav-link"
+                  activeStyle={{ color: "#19d3ae" }}
+                >
+                  Dental Services
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink
+                  href="#about"
+                  className="nav-link"
+                  activeStyle={{ color: "#19d3ae" }}
+                >
+                  About
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink
+                  href="#reviews"
+                  className="text-dark-50 nav-link"
+                  activeStyle={{ color: "#19d3ae" }}
+                >
+                  Reviews
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink
+                  href="#blog"
+                  className="text-dark-50 nav-link"
+                  activeStyle={{ color: "#19d3ae" }}
+                >
+                  Blog
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink
+                  href="#doctors"
+                  className="text-dark-50 nav-link"
+                  activeStyle={{ color: "#19d3ae" }}
+                >
+                  Doctors
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink
+                  href="#contactus"
+                  className="text-dark-50 nav-link"
+                  activeStyle={{ color: "#19d3ae" }}
+                >
+                  Contact us
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <Link
+                  to="/doctor's-panel"
+                  className="text-dark-50 nav-link"
+                  activeStyle={{ color: "#19d3ae" }}
+                >
+                  Dashboard
+                </Link>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </>
+      )}
     </Navbar>
   );
 };

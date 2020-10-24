@@ -1,0 +1,8 @@
+a:hover {
+  text-decoration: none;
+}
+#dashboard a:hover span:nth-child(2) {
+  transition: all 0.4s;
+  margin-left: 6px;
+  text-decoration: none !important;
+}

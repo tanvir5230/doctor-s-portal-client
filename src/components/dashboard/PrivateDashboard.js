@@ -1,18 +1,15 @@
-import React from "react";
-import { useState } from "react";
+import React, { useContext } from "react";
 import { Redirect, Route } from "react-router-dom";
+import { userContext } from "../../App";
 
 const PrivateDashboard = ({ children, ...rest }) => {
-  const [user, setUser] = useState(false);
-
-  const handleLogin = () => {
-    setUser(true);
-  };
+  const { user } = useContext(userContext);
+  console.log(user);
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        user ? (
+        true ? (
           children
         ) : (
           <Redirect

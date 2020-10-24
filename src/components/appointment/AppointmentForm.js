@@ -51,7 +51,7 @@ const MyForm = ({ successMsg, setSuccessMsg }) => {
           e.target.reset();
           setSuccessMsg(true);
         } else {
-          alert("your appointment was not successful.try again.");
+          alert("your appointment was not successful.Try again.");
         }
       });
   };

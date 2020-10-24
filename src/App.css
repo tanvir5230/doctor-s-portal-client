@@ -24,7 +24,7 @@
   transition: all 0.4s;
 }
 .active {
-  color: #1cc7c1;
+  color: #f0efec !important;
 }
 
 @media (max-width: 768px) {
@@ -60,6 +60,7 @@
 }
 
 .react-calendar {
+  width: 90%;
   border: 0;
 }
 .react-calendar__tile {

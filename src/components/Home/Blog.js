@@ -33,7 +33,7 @@ const bloggerData = [
 const Blog = () => {
   return (
     <>
-      <Container>
+      <Container id="blog">
         <h4
           className="text-uppercase t-green text-center"
           style={{ marginTop: "100px" }}

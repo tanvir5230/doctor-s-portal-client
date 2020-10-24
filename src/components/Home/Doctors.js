@@ -11,7 +11,7 @@ const doctors = [
 const Doctors = () => {
   return (
     <>
-      <Container>
+      <Container id="doctors">
         <h2
           style={{ marginTop: "100px" }}
           className="text-uppercase text-center t-green mb-4"

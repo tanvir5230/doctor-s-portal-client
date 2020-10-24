@@ -7,24 +7,42 @@ import "font-awesome/css/font-awesome.min.css";
 import "./App.css";
 import PrivateDashboard from "./components/dashboard/PrivateDashboard";
 import Login from "./components/userRegistration/Login";
-import Dashboard from "./components/dashboard/Dashboard";
+import DoctorDashboard from "./components/dashboard/DoctorDashboard";
+import { createContext } from "react";
+import { useState } from "react";
+import axios from "axios";
+import Appointment from "./components/appointment/Appointment";
+import MyFooter from "./components/Home/MyFooter";
+
+export const userContext = createContext();
 
 const App = () => {
+  const [user, setUser] = useState(false);
+  const toggleUser = () => {
+    setUser(user === false ? true : false);
+  };
+
   return (
     <>
-      <BrowserRouter>
-        <Switch>
-          <PrivateDashboard path="/dashboard">
-            <Dashboard />
-          </PrivateDashboard>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <userContext.Provider value={{ user: user, toggleUser }}>
+        <BrowserRouter>
+          <Switch>
+            <PrivateDashboard path="/doctor's-panel">
+              <DoctorDashboard />
+            </PrivateDashboard>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/appointment">
+              <Appointment />
+              <MyFooter />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </userContext.Provider>
     </>
   );
 };

@@ -16,7 +16,7 @@ const Dashboard = () => {
     Axios.get("http://localhost:5000/dashboard").then((res) =>
       setDashboardData(res.data)
     );
-  }, []);
+  }, [modal]);
 
   return (
     <>
@@ -189,7 +189,7 @@ const MyTable = ({ data, toggle, setId }) => {
                 <td ref={(name) => name}>{data.name}</td>
                 <td>{data.phone}</td>
                 <td>
-                  {data.prescription ? (
+                  {data.prescription && data.prescription.length > 0 ? (
                     <span className="c-green-grad-right px-3 py-1 text-white rounded-pill">
                       view
                     </span>

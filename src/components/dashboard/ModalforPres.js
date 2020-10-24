@@ -16,6 +16,7 @@ const ModalforPres = ({ modal, toggle, id }) => {
     Axios.patch("http://localhost:5000/prescribe?id=" + id, medicine).then(
       (res) => {
         if (res.data) {
+          setPres(res.data);
           medname.current.value = "";
           medname.current.focus();
         } else {
@@ -28,17 +29,24 @@ const ModalforPres = ({ modal, toggle, id }) => {
   const handleRemoveMedicine = (ind) => {
     Axios.patch(
       `http://localhost:5000/removeMedicine?ind=${ind}&id=${id}`
-    ).then((res) => console.log(res.data));
+    ).then((res) => {
+      if (res.data) {
+        setPres(res.data);
+      } else {
+        alert("couldn't remove the medicine.");
+      }
+    });
   };
 
   useEffect(() => {
     if (id !== null) {
       Axios.get("http://localhost:5000/petient?id=" + id).then((res) => {
+        console.log(res.data);
         setPetient(res.data);
         setPres(res.data.prescription);
       });
     }
-  }, [id, pres]);
+  }, [id]);
   return (
     <Modal isOpen={modal} toggle={toggle}>
       <ModalHeader toggle={toggle} className="t-green border-0">
@@ -103,7 +111,9 @@ const ModalforPres = ({ modal, toggle, id }) => {
                   <th>doses</th>
                   <th>action</th>
                 </tr>
+
                 {pres &&
+                  pres.length > 0 &&
                   pres.map((data, ind) => {
                     return (
                       <tr
@@ -128,6 +138,11 @@ const ModalforPres = ({ modal, toggle, id }) => {
                     );
                   })}
               </Table>
+              {pres && pres.length === 0 && (
+                <p className="text-center text-danger">
+                  No prescription is given.
+                </p>
+              )}
             </Col>
           </Row>
         </form>

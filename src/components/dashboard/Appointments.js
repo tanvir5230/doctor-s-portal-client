@@ -19,7 +19,7 @@ const Appointments = () => {
     const formattedDate = `${year}-${month + 1}-${day}`;
 
     Axios.get(
-      "http://localhost:5000/dashboard?date=" + formattedDate
+      "https://doctors-portal-t.herokuapp.com/dashboard?date=" + formattedDate
     ).then((res) => setData(res.data));
   }, [date]);
   return (
@@ -70,10 +70,13 @@ const Appointments = () => {
                         className="c-green-grad-bottom border-0 rounded p-1 text-white"
                         defaultValue={data.visited}
                         onChange={(e) => {
-                          Axios.patch("http://localhost:5000/visitingStatus", {
-                            visited: e.target.value,
-                            id: data._id,
-                          }).then((res) => console.log(res.data));
+                          Axios.patch(
+                            "https://doctors-portal-t.herokuapp.com/visitingStatus",
+                            {
+                              visited: e.target.value,
+                              id: data._id,
+                            }
+                          ).then((res) => console.log(res.data));
                         }}
                       >
                         <option value="yes" className="text-dark">

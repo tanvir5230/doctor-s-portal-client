@@ -13,22 +13,23 @@ const ModalforPres = ({ modal, toggle, id }) => {
 
   const handleAddMedicine = (e) => {
     e.preventDefault();
-    Axios.patch("http://localhost:5000/prescribe?id=" + id, medicine).then(
-      (res) => {
-        if (res.data) {
-          setPres(res.data);
-          medname.current.value = "";
-          medname.current.focus();
-        } else {
-          alert("couldn't add the prescribed medicine.");
-        }
+    Axios.patch(
+      "https://doctors-portal-t.herokuapp.com/prescribe?id=" + id,
+      medicine
+    ).then((res) => {
+      if (res.data) {
+        setPres(res.data);
+        medname.current.value = "";
+        medname.current.focus();
+      } else {
+        alert("couldn't add the prescribed medicine.");
       }
-    );
+    });
   };
 
   const handleRemoveMedicine = (ind) => {
     Axios.patch(
-      `http://localhost:5000/removeMedicine?ind=${ind}&id=${id}`
+      `https://doctors-portal-t.herokuapp.com/removeMedicine?ind=${ind}&id=${id}`
     ).then((res) => {
       if (res.data) {
         setPres(res.data);
@@ -40,10 +41,12 @@ const ModalforPres = ({ modal, toggle, id }) => {
 
   useEffect(() => {
     if (id !== null) {
-      Axios.get("http://localhost:5000/petient?id=" + id).then((res) => {
-        setPetient(res.data);
-        setPres(res.data.prescription);
-      });
+      Axios.get("https://doctors-portal-t.herokuapp.com/petient?id=" + id).then(
+        (res) => {
+          setPetient(res.data);
+          setPres(res.data.prescription);
+        }
+      );
     }
   }, [id]);
   return (

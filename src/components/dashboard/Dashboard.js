@@ -14,7 +14,7 @@ const Dashboard = () => {
   const toggle = () => setModal(!modal);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/dashboard").then((res) =>
+    Axios.get("https://doctors-portal-t.herokuapp.com/dashboard").then((res) =>
       setDashboardData(res.data)
     );
   }, [modal]);
@@ -146,7 +146,7 @@ const MyTable = ({ data, toggle, setId }) => {
                     defaultValue={data.status}
                     onInput={(e) => {
                       Axios.patch(
-                        `http://localhost:5000/changeStatus?id=${data._id}&status=${e.target.value}`
+                        `https://doctors-portal-t.herokuapp.com/changeStatus?id=${data._id}&status=${e.target.value}`
                       ).then((res) => {
                         if (res.data) {
                           history.replace("/doctor's-panel");

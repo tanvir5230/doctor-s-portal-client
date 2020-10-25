@@ -15,7 +15,7 @@ const Prescriptions = () => {
   const toggle = () => setModal(!modal);
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/dashboard").then((res) =>
+    Axios.get("https://doctors-portal-t.herokuapp.com/dashboard").then((res) =>
       setData(res.data)
     );
   }, []);

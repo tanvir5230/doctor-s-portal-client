@@ -10,7 +10,7 @@ const Patients = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/dashboard").then((res) =>
+    Axios.get("https://doctors-portal-t.herokuapp.com/dashboard").then((res) =>
       setPatientData(res.data)
     );
   }, []);

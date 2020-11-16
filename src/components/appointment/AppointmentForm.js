@@ -37,7 +37,7 @@ const MyForm = ({ successMsg, setSuccessMsg }) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data, e) => {
-    const url = "http://localhost:5000";
+    const url = "https://doctors-portal-t.herokuapp.com";
     fetch(url + "/appointmentData", {
       method: "POST",
       headers: {

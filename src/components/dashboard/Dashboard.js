@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Col, Row, Table } from "reactstrap";
+import serverName from "../../serverName";
 import Loader from "../Loader";
 import ModalforPres from "./ModalforPres";
 
@@ -14,7 +15,7 @@ const Dashboard = () => {
   const toggle = () => setModal(!modal);
 
   useEffect(() => {
-    Axios.get("https://doctors-portal-t.herokuapp.com/dashboard").then((res) =>
+    Axios.get(`${serverName}/dashboard`).then((res) =>
       setDashboardData(res.data)
     );
   }, [modal]);
@@ -146,7 +147,7 @@ const MyTable = ({ data, toggle, setId }) => {
                     defaultValue={data.status}
                     onInput={(e) => {
                       Axios.patch(
-                        `https://doctors-portal-t.herokuapp.com/changeStatus?id=${data._id}&status=${e.target.value}`
+                        `${serverName}/changeStatus?id=${data._id}&status=${e.target.value}`
                       ).then((res) => {
                         if (res.data) {
                           history.replace("/doctor's-panel");

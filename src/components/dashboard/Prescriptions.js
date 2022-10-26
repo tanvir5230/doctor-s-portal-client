@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 import { Container, Row, Table } from "reactstrap";
+import serverName from "../../serverName";
 import Loader from "../Loader";
 import ModalforPres from "./ModalforPres";
 
@@ -15,7 +16,7 @@ const Prescriptions = () => {
   const toggle = () => setModal(!modal);
 
   useEffect(() => {
-    Axios.get("https://doctors-portal-t.herokuapp.com/dashboard").then((res) =>
+    Axios.get(`${serverName}/dashboard`).then((res) =>
       setData(res.data)
     );
   }, []);

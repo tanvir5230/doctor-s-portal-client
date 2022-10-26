@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { Col, Modal, ModalBody, ModalHeader, Row, Table } from "reactstrap";
+import serverName from "../../serverName";
 import Loader from "../Loader";
 
 const ModalforPres = ({ modal, toggle, id }) => {
@@ -14,7 +15,7 @@ const ModalforPres = ({ modal, toggle, id }) => {
   const handleAddMedicine = (e) => {
     e.preventDefault();
     Axios.patch(
-      "https://doctors-portal-t.herokuapp.com/prescribe?id=" + id,
+      `${serverName}/prescribe?id=${id}`,
       medicine
     ).then((res) => {
       if (res.data) {
@@ -29,7 +30,7 @@ const ModalforPres = ({ modal, toggle, id }) => {
 
   const handleRemoveMedicine = (ind) => {
     Axios.patch(
-      `https://doctors-portal-t.herokuapp.com/removeMedicine?ind=${ind}&id=${id}`
+      `${serverName}/removeMedicine?ind=${ind}&id=${id}`
     ).then((res) => {
       if (res.data) {
         setPres(res.data);
@@ -41,7 +42,7 @@ const ModalforPres = ({ modal, toggle, id }) => {
 
   useEffect(() => {
     if (id !== null) {
-      Axios.get("https://doctors-portal-t.herokuapp.com/petient?id=" + id).then(
+      Axios.get(`${serverName}/petient?id=${id}`).then(
         (res) => {
           setPetient(res.data);
           setPres(res.data.prescription);
@@ -61,7 +62,7 @@ const ModalforPres = ({ modal, toggle, id }) => {
             <span>{petient.date}</span>
           </div>
         )}
-        <form className="mt-3" onSubmit={handleAddMedicine}>
+        <form className="mt-3">
           <Row className="justify-content-center">
             <Col xs={12} md={5}>
               <input
@@ -70,7 +71,10 @@ const ModalforPres = ({ modal, toggle, id }) => {
                 ref={medname}
                 className="w-100 h-100"
                 onBlur={(e) =>
-                  setMedicine({ ...medicine, name: e.target.value })
+                  {
+                    setMedicine({ ...medicine, name: e.target.value });
+                    console.log(medicine)
+                  }
                 }
                 required
               />
@@ -93,7 +97,7 @@ const ModalforPres = ({ modal, toggle, id }) => {
               </select>
             </Col>
             <Col xs={4} md={2}>
-              <button type="submit" className="btn btn-outline-primary w-100">
+              <button type="submit" className="btn btn-outline-primary w-100" onClick={(e)=>handleAddMedicine(e)}>
                 <i className="fa fa-plus"></i>
               </button>
             </Col>

@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Col, Row, Table } from "reactstrap";
+import serverName from "../../serverName";
 import Loader from "../Loader";
 
 const Patients = () => {
@@ -10,7 +11,7 @@ const Patients = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    Axios.get("https://doctors-portal-t.herokuapp.com/dashboard").then((res) =>
+    Axios.get(`${serverName}/dashboard`).then((res) =>
       setPatientData(res.data)
     );
   }, []);

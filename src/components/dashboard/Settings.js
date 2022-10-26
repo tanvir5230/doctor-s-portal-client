@@ -1,9 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 
 const Settings = () => {
-  const { id } = useParams();
-  return <div>{id}</div>;
+  return <div>
+    <p className="text-danger">The page is under construction.</p>
+  </div>;
 };
 
 export default Settings;

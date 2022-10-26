@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import "./appointment.css";
 import { useState } from "react";
 import AppointmentSuccess from "./AppointmentSuccess";
+import serverName from "../../serverName";
 
 const AppointmentForm = ({ toggle, modal, title }) => {
   const [successMsg, setSuccessMsg] = useState(false);
@@ -37,7 +38,7 @@ const MyForm = ({ successMsg, setSuccessMsg }) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data, e) => {
-    const url = "https://doctors-portal-t.herokuapp.com";
+    const url = serverName;
     fetch(url + "/appointmentData", {
       method: "POST",
       headers: {

@@ -1,0 +1,115 @@
+[debug] [2022-10-26T15:21:56.619Z] ----------------------------------------------------------------------
+[debug] [2022-10-26T15:21:56.622Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tanvi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-10-26T15:21:56.623Z] CLI Version:   11.15.0
+[debug] [2022-10-26T15:21:56.624Z] Platform:      win32
+[debug] [2022-10-26T15:21:56.624Z] Node Version:  v16.15.1
+[debug] [2022-10-26T15:21:56.625Z] Time:          Wed Oct 26 2022 21:21:56 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-10-26T15:21:56.626Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-26T15:21:56.736Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-26T15:21:56.737Z] > authorizing via signed-in user (tanvirbintouhid5230@gmail.com)
+[debug] [2022-10-26T15:21:56.737Z] [iam] checking project doctors-portal-t1 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-10-26T15:21:56.740Z] > refreshing access token with scopes: []
+[debug] [2022-10-26T15:21:56.742Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-10-26T15:21:56.743Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-26T15:21:57.081Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-10-26T15:21:57.081Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-26T15:21:57.093Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/doctors-portal-t1:testIamPermissions [none]
+[debug] [2022-10-26T15:21:57.094Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/doctors-portal-t1:testIamPermissions x-goog-quota-user=projects/doctors-portal-t1
+[debug] [2022-10-26T15:21:57.094Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/doctors-portal-t1:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-10-26T15:21:58.635Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/doctors-portal-t1:testIamPermissions 200
+[debug] [2022-10-26T15:21:58.635Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/doctors-portal-t1:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-10-26T15:21:58.638Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/doctors-portal-t1 [none]
+[debug] [2022-10-26T15:21:59.572Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/doctors-portal-t1 200
+[debug] [2022-10-26T15:21:59.572Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/doctors-portal-t1 {"projectId":"doctors-portal-t1","projectNumber":"1061722657388","displayName":"doctors-portal-t1","name":"projects/doctors-portal-t1","resources":{"hostingSite":"doctors-portal-t1"},"state":"ACTIVE","etag":"1_9505ed23-27e3-4cc9-a093-e5743c2a8fd0"}
+[info] 
+[info] === Deploying to 'doctors-portal-t1'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-10-26T15:21:59.585Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/versions [none]
+[debug] [2022-10-26T15:21:59.585Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-10-26T15:22:01.110Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/versions 200
+[debug] [2022-10-26T15:22:01.110Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/versions {"name":"projects/1061722657388/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[doctors-portal-t1]: beginning deploy... 
+[info] i  hosting[doctors-portal-t1]: found 40 files in build 
+[debug] [2022-10-26T15:22:01.142Z] [hosting] uploading with 200 concurrency
+[debug] [2022-10-26T15:22:01.895Z] [hosting] hash cache [YnVpbGQ] stored for 40 files
+[debug] [2022-10-26T15:22:01.896Z] [hosting][hash queue][FINAL] {"max":731,"min":11,"avg":177.67499999999998,"active":0,"complete":40,"success":40,"errored":0,"retried":0,"total":40,"elapsed":750}
+[debug] [2022-10-26T15:22:01.896Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/1061722657388/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee:populateFiles [none]
+[debug] [2022-10-26T15:22:01.897Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1061722657388/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee:populateFiles {"files":{"/favicon.ico":"f4087902367aa8e873a2fecad9dc25af797074583b2871fd99dbe8562cfbe912","/manifest.json":"5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840","/robots.txt":"b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5","/asset-manifest.json":"edbad63096a51ff8966fd73ff346b8829c851aadac0d52a3e4f4c04f67b632aa","/index.html":"60283380a44cb7d0fb916232a50d7b79f42f1c4898c5df352ba5ac038253cde0","/precache-manifest.fb96aa4f0249b94900f930efea2124ad.js":"0e161b706b09dde8cd1de4256c3f8175b4b5d5102b7c9b62a0d9604b8f634f38","/service-worker.js":"cf74fa8af20e31a323286b3e15510fccc137a546846dcf6dd539a11ec8a7665f","/static/css/main.268a1aae.chunk.css":"d3a5fec8a7c83df53cee3f1e4e5e0b74d80cd2cbb38fcbbba76f2b1f347310af","/static/css/main.268a1aae.chunk.css.map":"6b18dd9fcb699ec99242096622dd9dea69ec7c724ee09382ab46fa50402bbc36","/static/js/2.ec8941cd.chunk.js.LICENSE.txt":"e022bf0326af5e513b9353637795ac5615c18f603a71ba5892589399cbf545f8","/static/js/runtime-main.09b85ec0.js":"e31aef2dfc4e4f540e4f30c9672a84e056848603f6af1befce5b2d563ca72bc2","/static/js/runtime-main.09b85ec0.js.map":"3fd24931029f92a9efdf4d844fbc07025156d405df65caacabe4c12feb638c8f","/static/media/quote.8853a3b4.png":"15041b077cf1e71c085b6375b1491a1c42837a5d162b211f2052aac1d2452aad","/static/media/doctor.e041a991.png":"7889e53ae6713fb13a8e8bf3983e74f688f4bcac3cf0e080553c43ebc635184a","/static/media/bg-login.afb6037a.png":"aee048258da16e444fc5a4ccfc1eba31fac850a81088b44fc6f3e9dd6e610a03","/static/media/footer-bg.7e5aec06.png":"989340d4a74a31a89178237db96bd697ca68b18ba0a6fd68f08d3ec10a0725a5","/static/js/main.dc48ff82.chunk.js":"126adb4617719cf6f0f0fc3d1f3ed6d3587bc74ea4515344e24ef19def81ceb8","/static/css/2.ba7a83a3.chunk.css":"6df13a69f6bcbcef7e0ff436f62f435739cafa264744b366bb81977bd385dcf7","/static/media/fontawesome-webfont.af7ae505.woff2":"38d88317bebc79b4945a679daadd47daebbadc5cd13b41473143394ca7e8d892","/static/media/fontawesome-webfont.fee66e71.woff":"b51c2c79cce89b7c5947672c13f735c24ee1a9f8f6ebdb957c5fdfe567f27d37","/static/js/main.dc48ff82.chunk.js.map":"5655f7159f30c43844798863296c5264ad749050f4125b75e528c8a84360899b","/static/media/fontawesome-webfont.674f50d2.eot":"4944999b255adf473d5b86b300eba33737e8f598c17f24e82a28582393331209","/static/media/fontawesome-webfont.b06871f2.ttf":"d9cef07d4f3569883fb4c3db76acea5478cef80775d012841eb78a42e60a8e89","/static/media/Web 1920 – 3.b7cd09a3.png":"d99c88b2d73d857b14642039f0630f0f8ac0afad92b6e6c1f9fa5c5d4bd75ee0","/static/js/2.ec8941cd.chunk.js":"03c2c411bd50e2044bbaf6bbe543137bfdec9045fc865e37f9d475c1c672de90","/static/media/Web 1920 – 4.cbe379dd.png":"5a9c5229b314ff5d682de712cb7db72355d7bf99e1c202eb9db2144c4a35ad9d","/static/media/Web 1920 – 5.ff641ad1.png":"0adddd3a7ea8a8d2fa4fc45dffee62f5279e8ec43a46942266d2961b46205636","/static/media/chair.cc8e989f.png":"bd91c7c1c531a64f05708bcf9ecebf423c57be55d2b405b79da40668479ec490","/static/media/Web 1920 – 1.682b8af4.png":"3ba185d51c159deee7e200c615e1d3e6586afbd6089df8a2b064e6ec6087bb09","/static/media/chair-faint.95af4e5c.png":"bcfd86b215b3b0c5fad968c9ca5bea13ed7c40e001f1a7efedefcf57160082d2","/static/media/baby-tooth-test.5869536e.png":"683a9085ad843efdcf0b1704cdd12bcf94436f9be4fd6c7d59f28c07a4cc5dbc","/static/css/2.ba7a83a3.chunk.css.map":"f227056a8c41a71bc7cb42101bb96441da84aed31f021b0b2e4f41556eb34228","/static/media/1602737898_16_Reg_Link.5232f556.doc":"9645cb0f8a9a11e8c04068d961780377b5ae4c040cc6b1e3832fd52776f71179","/static/media/fontawesome-webfont.912ec66d.svg":"9b74ca5333a9ca156ae6ef0920d5bc42d283e95d25651bf4375404f0407a63ab","/static/media/Web 1920 – 6.05861e73.png":"fb425042505f4867cbeb2e11c360d86af780e3bb1a45c02deaf3f5cca15dea14","/static/media/chair2.85fcba54.png":"d791fdf7bc9092af4d1397248ae1237f9bd92b2aad22c67bc89243debbc92ffb","/static/js/2.ec8941cd.chunk.js.map":"acb144637b5c9e1d7ff6e1775ab04a6b17011e437328b093c15de5c84b3e571c","/static/media/Web 1920 – 9.f79cfdda.png":"e6b05cdb937ada3a844956ea7f95d18f913bc9b42e27cebca906c0f21d3547b7","/static/media/Web 1920 – 8.b7b71fb0.png":"c7b2b3081f289527f92eacb623709b81959dc692d3ce8ce2e7ea78d9753b5a52","/static/media/Web 1920 – 2.671ff294.png":"07ddb206c580e6adc68ac9969ff1cd6384b5f56c65222ed162c9c189889bbae0"}}
+[debug] [2022-10-26T15:22:03.723Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/1061722657388/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee:populateFiles 200
+[debug] [2022-10-26T15:22:03.723Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1061722657388/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee:populateFiles {"uploadRequiredHashes":["60283380a44cb7d0fb916232a50d7b79f42f1c4898c5df352ba5ac038253cde0","edbad63096a51ff8966fd73ff346b8829c851aadac0d52a3e4f4c04f67b632aa","126adb4617719cf6f0f0fc3d1f3ed6d3587bc74ea4515344e24ef19def81ceb8","5655f7159f30c43844798863296c5264ad749050f4125b75e528c8a84360899b","cf74fa8af20e31a323286b3e15510fccc137a546846dcf6dd539a11ec8a7665f","0e161b706b09dde8cd1de4256c3f8175b4b5d5102b7c9b62a0d9604b8f634f38"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files"}
+[debug] [2022-10-26T15:22:03.726Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/60283380a44cb7d0fb916232a50d7b79f42f1c4898c5df352ba5ac038253cde0 [none]
+[debug] [2022-10-26T15:22:03.727Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/60283380a44cb7d0fb916232a50d7b79f42f1c4898c5df352ba5ac038253cde0 [stream]
+[debug] [2022-10-26T15:22:03.729Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/edbad63096a51ff8966fd73ff346b8829c851aadac0d52a3e4f4c04f67b632aa [none]
+[debug] [2022-10-26T15:22:03.729Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/edbad63096a51ff8966fd73ff346b8829c851aadac0d52a3e4f4c04f67b632aa [stream]
+[debug] [2022-10-26T15:22:03.732Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/126adb4617719cf6f0f0fc3d1f3ed6d3587bc74ea4515344e24ef19def81ceb8 [none]
+[debug] [2022-10-26T15:22:03.732Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/126adb4617719cf6f0f0fc3d1f3ed6d3587bc74ea4515344e24ef19def81ceb8 [stream]
+[debug] [2022-10-26T15:22:03.733Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/5655f7159f30c43844798863296c5264ad749050f4125b75e528c8a84360899b [none]
+[debug] [2022-10-26T15:22:03.733Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/5655f7159f30c43844798863296c5264ad749050f4125b75e528c8a84360899b [stream]
+[debug] [2022-10-26T15:22:03.737Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/cf74fa8af20e31a323286b3e15510fccc137a546846dcf6dd539a11ec8a7665f [none]
+[debug] [2022-10-26T15:22:03.737Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/cf74fa8af20e31a323286b3e15510fccc137a546846dcf6dd539a11ec8a7665f [stream]
+[debug] [2022-10-26T15:22:03.740Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/0e161b706b09dde8cd1de4256c3f8175b4b5d5102b7c9b62a0d9604b8f634f38 [none]
+[debug] [2022-10-26T15:22:03.740Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/0e161b706b09dde8cd1de4256c3f8175b4b5d5102b7c9b62a0d9604b8f634f38 [stream]
+[debug] [2022-10-26T15:22:03.742Z] [hosting][populate queue][FINAL] {"max":1833,"min":1833,"avg":1833,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1849}
+[debug] [2022-10-26T15:22:03.743Z] [hosting] uploads queued: 6
+[debug] [2022-10-26T15:22:05.465Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/edbad63096a51ff8966fd73ff346b8829c851aadac0d52a3e4f4c04f67b632aa 200
+[debug] [2022-10-26T15:22:05.466Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/edbad63096a51ff8966fd73ff346b8829c851aadac0d52a3e4f4c04f67b632aa [stream]
+[debug] [2022-10-26T15:22:05.480Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/cf74fa8af20e31a323286b3e15510fccc137a546846dcf6dd539a11ec8a7665f 200
+[debug] [2022-10-26T15:22:05.481Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/cf74fa8af20e31a323286b3e15510fccc137a546846dcf6dd539a11ec8a7665f [stream]
+[debug] [2022-10-26T15:22:06.013Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/60283380a44cb7d0fb916232a50d7b79f42f1c4898c5df352ba5ac038253cde0 200
+[debug] [2022-10-26T15:22:06.013Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/60283380a44cb7d0fb916232a50d7b79f42f1c4898c5df352ba5ac038253cde0 [stream]
+[debug] [2022-10-26T15:22:06.082Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/0e161b706b09dde8cd1de4256c3f8175b4b5d5102b7c9b62a0d9604b8f634f38 200
+[debug] [2022-10-26T15:22:06.082Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/0e161b706b09dde8cd1de4256c3f8175b4b5d5102b7c9b62a0d9604b8f634f38 [stream]
+[debug] [2022-10-26T15:22:06.105Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/126adb4617719cf6f0f0fc3d1f3ed6d3587bc74ea4515344e24ef19def81ceb8 200
+[debug] [2022-10-26T15:22:06.105Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/126adb4617719cf6f0f0fc3d1f3ed6d3587bc74ea4515344e24ef19def81ceb8 [stream]
+[debug] [2022-10-26T15:22:06.200Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/5655f7159f30c43844798863296c5264ad749050f4125b75e528c8a84360899b 200
+[debug] [2022-10-26T15:22:06.200Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee/files/5655f7159f30c43844798863296c5264ad749050f4125b75e528c8a84360899b [stream]
+[debug] [2022-10-26T15:22:06.200Z] [hosting][upload queue][FINAL] {"max":2474,"min":1742,"avg":2166.1666666666665,"active":0,"complete":6,"success":6,"errored":0,"retried":0,"total":6,"elapsed":2476}
+[info] +  hosting[doctors-portal-t1]: file upload complete 
+[debug] [2022-10-26T15:22:06.202Z] [hosting] deploy completed after 5089ms
+[debug] [2022-10-26T15:22:06.206Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "doctors-portal-t1"
+    },
+    "version": "projects/1061722657388/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee"
+  }
+]
+[info] i  hosting[doctors-portal-t1]: finalizing version... 
+[debug] [2022-10-26T15:22:06.209Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee updateMask=status%2Cconfig
+[debug] [2022-10-26T15:22:06.209Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-10-26T15:22:07.535Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee 200
+[debug] [2022-10-26T15:22:07.535Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee {"name":"projects/1061722657388/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-10-26T15:22:01.275858Z","createUser":{"email":"tanvirbintouhid5230@gmail.com"},"finalizeTime":"2022-10-26T15:22:08.087609Z","finalizeUser":{"email":"tanvirbintouhid5230@gmail.com"}}
+[debug] [2022-10-26T15:22:07.535Z] [hosting] finalized version for doctors-portal-t1:[object Object]
+[info] +  hosting[doctors-portal-t1]: version finalized 
+[info] i  hosting[doctors-portal-t1]: releasing new version... 
+[debug] [2022-10-26T15:22:07.537Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/channels/live/releases versionName=projects%2F1061722657388%2Fsites%2Fdoctors-portal-t1%2Fversions%2Fbf7b7ac19fdfeaee
+[debug] [2022-10-26T15:22:07.537Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/channels/live/releases {}
+[debug] [2022-10-26T15:22:08.885Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/channels/live/releases 200
+[debug] [2022-10-26T15:22:08.885Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/doctors-portal-t1/channels/live/releases {"name":"projects/1061722657388/sites/doctors-portal-t1/channels/live/releases/1666797728726789","version":{"name":"projects/1061722657388/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-10-26T15:22:01.275858Z","createUser":{"email":"tanvirbintouhid5230@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3rQLe83dBP9DJMKUf7YxIrBv9k5w_Z6IZvfa0YOg"},"finalizeTime":"2022-10-26T15:22:08.087609Z","finalizeUser":{"email":"tanvirbintouhid5230@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3rQLe83dBP9DJMKUf7YxIrBv9k5w_Z6IZvfa0YOg"}},"type":"DEPLOY","releaseTime":"2022-10-26T15:22:08.726789202Z","releaseUser":{"email":"tanvirbintouhid5230@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3rQLe83dBP9DJMKUf7YxIrBv9k5w_Z6IZvfa0YOg"}}
+[debug] [2022-10-26T15:22:08.885Z] [hosting] release: {"name":"projects/1061722657388/sites/doctors-portal-t1/channels/live/releases/1666797728726789","version":{"name":"projects/1061722657388/sites/doctors-portal-t1/versions/bf7b7ac19fdfeaee","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-10-26T15:22:01.275858Z","createUser":{"email":"tanvirbintouhid5230@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3rQLe83dBP9DJMKUf7YxIrBv9k5w_Z6IZvfa0YOg"},"finalizeTime":"2022-10-26T15:22:08.087609Z","finalizeUser":{"email":"tanvirbintouhid5230@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3rQLe83dBP9DJMKUf7YxIrBv9k5w_Z6IZvfa0YOg"}},"type":"DEPLOY","releaseTime":"2022-10-26T15:22:08.726789202Z","releaseUser":{"email":"tanvirbintouhid5230@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3rQLe83dBP9DJMKUf7YxIrBv9k5w_Z6IZvfa0YOg"}}
+[info] +  hosting[doctors-portal-t1]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/doctors-portal-t1/overview
+[info] Hosting URL: https://doctors-portal-t1.web.app
+[debug] [2022-10-26T15:22:14.358Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\tanvi\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.

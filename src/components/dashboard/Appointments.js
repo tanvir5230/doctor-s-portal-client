@@ -5,6 +5,7 @@ import { useState } from "react";
 import Calendar from "react-calendar";
 import { useParams } from "react-router-dom";
 import { Col, Row, Table } from "reactstrap";
+import serverName from "../../serverName";
 import Loader from "../Loader";
 
 const Appointments = () => {
@@ -19,7 +20,7 @@ const Appointments = () => {
     const formattedDate = `${year}-${month + 1}-${day}`;
 
     Axios.get(
-      "https://doctors-portal-t.herokuapp.com/dashboard?date=" + formattedDate
+      `${serverName}/dashboard?date=` + formattedDate
     ).then((res) => setData(res.data));
   }, [date]);
   return (
@@ -71,7 +72,7 @@ const Appointments = () => {
                         defaultValue={data.visited}
                         onChange={(e) => {
                           Axios.patch(
-                            "https://doctors-portal-t.herokuapp.com/visitingStatus",
+                            `${serverName}/visitingStatus`,
                             {
                               visited: e.target.value,
                               id: data._id,
